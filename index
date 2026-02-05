@@ -165,11 +165,13 @@
         
         .option input[type="radio"] {
             margin-right: 10px;
+            cursor: pointer;
         }
         
         .option label {
             cursor: pointer;
-            display: inline;
+            width: 100%;
+            display: inline-block;
         }
         
         .submit-btn {
@@ -350,7 +352,7 @@
                     <h4>VeriPura Benefits:</h4>
                     <ul>
                         <li>Prevents result tampering or backdating</li>
-                        <li>Automatically verifies test is <30 days old (EU requirement)</li>
+                        <li>Automatically verifies test is &lt;30 days old (EU requirement)</li>
                         <li>Customs can verify authenticity without contacting lab</li>
                         <li>Protects labs from false fraud accusations</li>
                     </ul>
@@ -400,19 +402,19 @@
                             <h3>Question 1</h3>
                             <p>A laboratory has completed pesticide residue testing on a produce shipment and needs to ensure the results cannot be altered or backdated. Which notarization approach should VeriPura use?</p>
                             <div class="options">
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q1a" name="q1" value="a">
                                     <label for="q1a">Versioned notarization, so the lab can update results if needed</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q1b" name="q1" value="b">
                                     <label for="q1b">Immutable notarization, creating a permanent timestamp that proves when the test was conducted</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q1c" name="q1" value="c">
                                     <label for="q1c">Template-based notarization for recurring shipments</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q1d" name="q1" value="d">
                                     <label for="q1d">No notarization needed - lab results are always trusted</label>
                                 </div>
@@ -424,19 +426,19 @@
                             <h3>Question 2</h3>
                             <p>A health certificate needs approval from four different government agencies in sequence: health inspector → ministry of agriculture → customs → chamber of commerce. What is the best approach?</p>
                             <div class="options">
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q2a" name="q2" value="a">
                                     <label for="q2a">Immutable notarization after all approvals are complete</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q2b" name="q2" value="b">
                                     <label for="q2b">Versioned notarization with smart contract enforcement of approval sequence</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q2c" name="q2" value="c">
                                     <label for="q2c">Separate immutable notarizations for each agency</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q2d" name="q2" value="d">
                                     <label for="q2d">Off-chain tracking without blockchain notarization</label>
                                 </div>
@@ -448,19 +450,19 @@
                             <h3>Question 3</h3>
                             <p>An exporter ships frozen seafood to the same EU importer every week. The exporter details, importer details, and treatment protocols never change - only batch numbers, harvest dates, and quantities vary. What's the most efficient approach?</p>
                             <div class="options">
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q3a" name="q3" value="a">
                                     <label for="q3a">Create entirely new immutable documents for each shipment</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q3b" name="q3" value="b">
                                     <label for="q3b">Use a master template with batch-specific instances that reference the template</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q3c" name="q3" value="c">
                                     <label for="q3c">Use versioned documents and update the same certificate weekly</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q3d" name="q3" value="d">
                                     <label for="q3d">Only notarize the first shipment and reuse indefinitely</label>
                                 </div>
@@ -472,19 +474,19 @@
                             <h3>Question 4</h3>
                             <p>After a health certificate is issued and notarized, the health authority discovers contamination in the batch and needs to revoke the certificate. How should VeriPura handle this?</p>
                             <div class="options">
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q4a" name="q4" value="a">
                                     <label for="q4a">Delete the original notarization from the blockchain</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q4b" name="q4" value="b">
                                     <label for="q4b">Create a new notarization with "REVOKED" status linked to the original, preserving full audit trail</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q4c" name="q4" value="c">
                                     <label for="q4c">Modify the original notarization to show revoked status</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q4d" name="q4" value="d">
                                     <label for="q4d">Send email notification only - no blockchain update needed</label>
                                 </div>
@@ -496,19 +498,19 @@
                             <h3>Question 5</h3>
                             <p>What is a key advantage of using IOTA's feeless transactions for version-tracked documents in high-volume compliance scenarios?</p>
                             <div class="options">
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q5a" name="q5" value="a">
                                     <label for="q5a">Faster transaction processing than traditional blockchain</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q5b" name="q5" value="b">
                                     <label for="q5b">Can notarize every document version and query without cost constraints, making comprehensive audit trails economically viable</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q5c" name="q5" value="c">
                                     <label for="q5c">Eliminates the need for smart contracts</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q5d" name="q5" value="d">
                                     <label for="q5d">Guarantees 100% uptime</label>
                                 </div>
@@ -520,19 +522,19 @@
                             <h3>Question 6</h3>
                             <p>A certificate is issued in Vietnamese and then professionally translated to English for EU customs. How should VeriPura handle notarization to prove translation authenticity?</p>
                             <div class="options">
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q6a" name="q6" value="a">
                                     <label for="q6a">Only notarize the English translation since that's what EU customs sees</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q6b" name="q6" value="b">
                                     <label for="q6b">Notarize both the original Vietnamese document and the certified translation, with the translation referencing the original's hash</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q6c" name="q6" value="c">
                                     <label for="q6c">Use versioned notarization where the translation is version 2 of the original</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q6d" name="q6" value="d">
                                     <label for="q6d">Only notarize the original - translations don't need verification</label>
                                 </div>
@@ -544,19 +546,19 @@
                             <h3>Question 7</h3>
                             <p>What information should be tracked in a versioned document chain to provide complete auditability?</p>
                             <div class="options">
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q7a" name="q7" value="a">
                                     <label for="q7a">Only the content hash and timestamp</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q7b" name="q7" value="b">
                                     <label for="q7b">Content hash, timestamp, author DID, change description, and previous version hash</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q7c" name="q7" value="c">
                                     <label for="q7c">Just the current version - previous versions can be discarded</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q7d" name="q7" value="d">
                                     <label for="q7d">The full document content for each version</label>
                                 </div>
@@ -568,19 +570,19 @@
                             <h3>Question 8</h3>
                             <p>VeriPura needs to verify that an invoice, packing list, and health certificate all match (same quantities, dates, and product descriptions). EU customs rejects shipments with discrepancies. What's the best approach?</p>
                             <div class="options">
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q8a" name="q8" value="a">
                                     <label for="q8a">Notarize all three documents separately with cross-references and use automated reconciliation to flag mismatches</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q8b" name="q8" value="b">
                                     <label for="q8b">Only notarize the health certificate since it's the most important</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q8c" name="q8" value="c">
                                     <label for="q8c">Combine all three documents into one PDF before notarizing</label>
                                 </div>
-                                <div class="option">
+                                <div class="option" onclick="selectOption(this)">
                                     <input type="radio" id="q8d" name="q8" value="d">
                                     <label for="q8d">Manual verification is sufficient - notarization not needed for commercial documents</label>
                                 </div>
@@ -608,16 +610,10 @@
             q8: 'a'
         };
         
-        const explanations = {
-            q1: 'Lab test results should never be altered after completion. Immutable notarization creates a permanent timestamp proving when the test was conducted and ensures the results cannot be backdated or tampered with.',
-            q2: 'Versioned notarization with smart contracts allows tracking each approval stage while enforcing the correct sequence. The smart contract can prevent out-of-sequence approvals and ensure all required signatures are present.',
-            q3: 'A master template for unchanging information (exporter, importer, protocols) combined with batch-specific instances for variable data (batch numbers, dates, quantities) reduces redundancy and maintains consistency across recurring shipments.',
-            q4: 'Blockchain records are immutable by design - you cannot delete or modify them. The correct approach is to create a new notarization with "REVOKED" status linked to the original, preserving the complete audit trail showing what was approved and when it was revoked.',
-            q5: 'IOTA\'s feeless transactions make it economically viable to notarize every document version, query, and validation without worrying about accumulating gas fees. This is critical for high-frequency compliance scenarios where traditional blockchain costs would be prohibitive.',
-            q6: 'Notarizing both documents with the translation referencing the original\'s hash proves the translation derived from a specific original version. This creates cryptographic proof of translation authenticity and protects against disputes about whether the translation matches the original.',
-            q7: 'Complete auditability requires tracking content hash (what), timestamp (when), author DID (who), change description (why), and previous version hash (linking the chain). This provides full transparency about the document\'s evolution.',
-            q8: 'Notarizing all three documents with cross-references allows VeriPura to automatically verify that quantities, dates, and product descriptions match across all documents. This catches discrepancies before the shipment reaches EU customs, preventing costly rejections.'
-        };
+        function selectOption(element) {
+            const radio = element.querySelector('input[type="radio"]');
+            radio.checked = true;
+        }
         
         function submitQuiz() {
             let score = 0;
